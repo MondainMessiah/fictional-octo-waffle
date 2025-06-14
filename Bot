@@ -1,0 +1,6 @@
+tibia-daily-discord-bot/
+├── .github/
+│   └── workflows/
+│       └── daily.yml
+├── main.py
+└── requirements.txt
