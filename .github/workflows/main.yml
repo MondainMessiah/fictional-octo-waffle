@@ -1,11 +1,11 @@
 tibia-daily-discord-bot/
-├── .github/
-│   └── workflows/
-│       └── daily.yml
 ├── main.py
-└── requirements.txt
+├── requirements.txt
+└── .github/
+    └── workflows/
+        └── daily.yml
 
-import asyncio
+        import asyncio
 from playwright.async_api import async_playwright
 import datetime
 import requests
@@ -50,39 +50,41 @@ async def main():
     print("✅ Sent message to Discord.")
 
 if __name__ == "__main__":
-    asyncio.run(main())
+asyncio.run(main())
 
-    playwright
+playwright
 beautifulsoup4
 requests
+
 name: Tibia Daily Bot
 
 on:
   schedule:
     - cron: '5 8 * * *'  # every day at 09:05 BST
-  workflow_dispatch:     # allows manual run
+  workflow_dispatch:
 
 jobs:
   run-bot:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: 3.11
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        playwright install --with-deps
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          playwright install --with-deps
 
-    - name: Run bot
-      run: python main.py
+      - name: Run bot
+        run: python main.py
 
-      git add .
-git commit -m "Add Tibia daily status Discord bot"
+git add .
+git commit -m "Fix YAML and setup Tibia daily bot"
 git push
+    
